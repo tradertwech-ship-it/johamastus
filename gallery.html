@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gallery — Jocelyn High School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#123B6D;
+  --navy-deep:#0C2A4E;
+  --gold:#F4B400;
+  --white:#FFFFFF;
+  --light:#EAF3FA;
+  --text:#222222;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--white); color:var(--text);
+  font-family:'Inter', -apple-system, Segoe UI, sans-serif;
+  line-height:1.55;
+}
+h1,h2,h3{font-family:'Fraunces', Georgia, serif; color:var(--navy-deep); margin:0 0 .4em; font-weight:600;}
+p{margin:0 0 1em; max-width:64ch;}
+a{color:inherit;}
+img{max-width:100%; display:block;}
+section{padding:64px 24px;}
+.wrap{max-width:1080px; margin:0 auto;}
+
+header{position:sticky; top:0; z-index:10; background:var(--navy);}
+.navbar{max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:16px; flex-wrap:wrap;}
+.brand{display:flex; align-items:center; gap:10px; color:var(--white); font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; white-space:nowrap; text-decoration:none;}
+.brand-logo{width:36px; height:36px; object-fit:contain; border-radius:4px;}
+nav{display:flex; gap:18px; flex-wrap:wrap;}
+nav a{color:#DCE7F5; text-decoration:none; font-size:.92rem; white-space:nowrap; padding:4px 2px; border-bottom:2px solid transparent;}
+nav a:hover, nav a:focus-visible{color:var(--white); border-bottom-color:var(--gold); outline:none;}
+nav a.active{color:var(--white); border-bottom-color:var(--gold);}
+
+.page-hero{background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); color:var(--white); padding:56px 24px; text-align:left;}
+.page-hero h1{color:var(--white); font-size:clamp(1.6rem,4vw,2.3rem); margin:0;}
+.page-hero p{color:#DCE7F5; margin-top:8px;}
+
+.gallery-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; margin-top:28px;}
+.gtile{
+  aspect-ratio:4/3; 
+  border-radius:8px; 
+  display:flex; 
+  align-items:flex-end; 
+  padding:16px; 
+  color:var(--white); 
+  font-size:1rem; 
+  font-weight:600;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:transform 0.2s ease, opacity 0.3s ease;
+}
+.gtile:hover{transform:translateY(-4px);}
+.gtile.hide{display:none;}
+.gtile img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.gtile span{
+  position:relative; 
+  z-index:2; 
+  text-shadow:0 1px 4px rgba(0,0,0,0.7);
+}
+.gtile::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(12,42,78,0.85) 0%, rgba(12,42,78,0.1) 60%, transparent 100%);
+  z-index:1;
+}
+
+.filter-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;}
+.filter-btn{font:inherit; font-size:.85rem; padding:7px 16px; border-radius:20px; border:1px solid var(--navy); background:var(--white); color:var(--navy); cursor:pointer; transition:all 0.2s ease;}
+.filter-btn.active, .filter-btn:hover{background:var(--navy); color:var(--white);}
+
+footer{background:var(--navy-deep); color:#B9C9DB; padding:48px 24px 28px;}
+.foot-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:28px; max-width:1080px; margin:0 auto;}
+footer h3{color:var(--white); font-size:1rem; font-family:'Inter',sans-serif; font-weight:600;}
+footer a{color:#B9C9DB; text-decoration:none; font-size:.9rem; display:block; margin-bottom:8px;}
+footer a:hover{color:var(--gold);}
+.foot-bottom{max-width:1080px; margin:32px auto 0; border-top:1px solid #24466E; padding-top:20px; font-size:.82rem; text-align:center; color:#7E93AC;}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="navbar">
+    <a class="brand" href="index.html">
+      <img src="logo.jpeg" alt="Jocelyn High School Logo" class="brand-logo">
+      Jocelyn High School
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="students.html">Student Life</a>
+      <a href="news.html">News</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>Gallery</h1>
+    <p>A look around our school community.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="campus">Campus</button>
+      <button class="filter-btn" data-filter="classrooms">Classrooms</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+      <button class="filter-btn" data-filter="events">Events</button>
+      <button class="filter-btn" data-filter="students">Students</button>
+      <button class="filter-btn" data-filter="teachers">Teachers</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gtile" data-category="campus">
+        <img src="SC.jpeg" alt="School Campus">
+        <span>School Campus</span>
+      </div>
+
+      <div class="gtile" data-category="classrooms">
+        <img src="C.jpeg" alt="Classrooms">
+        <span>Classrooms</span>
+      </div>
+
+      <div class="gtile" data-category="sports">
+        <img src="S.jpeg" alt="Sports">
+        <span>Sports</span>
+      </div>
+
+      <div class="gtile" data-category="events">
+        <img src="E.jpeg" alt="Events">
+        <span>Events</span>
+      </div>
+
+      <div class="gtile" data-category="students">
+        <img src="St.jpg" alt="Students">
+        <span>Students</span>
+      </div>
+
+      <div class="gtile" data-category="teachers">
+        <img src="T.jpeg" alt="Teachers">
+        <span>Teachers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <h3>Jocelyn High School</h3>
+      <p style="font-size:.88rem;">Knowledge, Character, Excellence.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <a href="about.html">About Us</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="academics.html">Academics</a>
+      <a href="students.html">Student Life</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a href="contact.html">School Road, Your Town</a>
+      <a href="contact.html">+000 000 0000</a>
+      <a href="contact.html">info@jocelynhighschool.edu</a>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 Jocelyn High School</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gtile');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      galleryItems.forEach(item => {
+        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+          item.classList.remove('hide');
+        } else {
+          item.classList.add('hide');
+        }
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
