@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>News & Events — Jocelyn High School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#123B6D;
+  --navy-deep:#0C2A4E;
+  --gold:#F4B400;
+  --white:#FFFFFF;
+  --light:#EAF3FA;
+  --text:#222222;
+  --border:#C3D6E8;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--white); color:var(--text);
+  font-family:'Inter', -apple-system, Segoe UI, sans-serif;
+  line-height:1.55;
+}
+h1,h2,h3,h4{font-family:'Fraunces', Georgia, serif; color:var(--navy-deep); margin:0 0 .4em; font-weight:600;}
+p{margin:0 0 1em; max-width:64ch;}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+section{padding:64px 24px;}
+.wrap{max-width:1080px; margin:0 auto;}
+
+/* Header Navigation Bar */
+header{position:sticky; top:0; z-index:10; background:var(--navy);}
+.navbar{max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:16px; flex-wrap:wrap;}
+.brand{display:flex; align-items:center; gap:12px; color:var(--white); font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; white-space:nowrap; text-decoration:none;}
+.logo-img{width:40px; height:40px; object-fit:cover; border-radius:50%; border:2px solid var(--gold);}
+nav{display:flex; gap:18px; flex-wrap:wrap;}
+nav a{color:#DCE7F5; text-decoration:none; font-size:.92rem; white-space:nowrap; padding:4px 2px; border-bottom:2px solid transparent;}
+nav a:hover, nav a:focus-visible{color:var(--white); border-bottom-color:var(--gold); outline:none;}
+nav a.active{color:var(--white); border-bottom-color:var(--gold);}
+
+/* Hero Section */
+.hero{background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); color:var(--white); padding:80px 24px; text-align:left;}
+.hero h1{color:var(--white); font-size:clamp(2rem,5vw,3rem); line-height:1.1; margin-bottom:.3em;}
+.hero p{color:#DCE7F5; font-size:1.1rem; margin-bottom:0;}
+
+/* Titles & Section Styles */
+h2{font-size:1.75rem; border-left:5px solid var(--gold); padding-left:14px; margin-bottom:12px;}
+.lead{color:#444; max-width:64ch; margin-bottom:28px;}
+.alt{background:var(--light);}
+
+/* Grid System & Cards */
+.grid-3{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:24px;}
+.grid-2{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px; margin-top:24px;}
+
+.news-card{background:var(--white); border:1px solid var(--border); border-radius:6px; overflow:hidden; transition:transform 0.2s ease, box-shadow 0.2s ease;}
+.news-card:hover{transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.08);}
+.news-card img{width:100%; height:200px; object-fit:cover;}
+.news-card-body{padding:20px;}
+.badge{display:inline-block; background:var(--light); color:var(--navy-deep); font-size:0.75rem; font-weight:600; text-transform:uppercase; padding:3px 8px; border-radius:3px; margin-bottom:10px; border:1px solid var(--border);}
+
+.event-card{display:flex; flex-direction:column; background:var(--white); border:1px solid var(--border); border-radius:6px; overflow:hidden;}
+.event-card img{width:100%; height:180px; object-fit:cover;}
+.event-card-body{padding:20px;}
+.event-meta{font-size:0.85rem; color:#555; margin-bottom:10px; font-weight:500;}
+
+/* Featured Event Banner */
+.featured-card{background:var(--white); border:1px solid var(--border); border-radius:8px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; gap:0;}
+@media (max-width:768px){ .featured-card{grid-template-columns:1fr;} }
+.featured-img{width:100%; height:100%; min-height:280px; object-fit:cover;}
+.featured-body{padding:32px; display:flex; flex-direction:column; justify-content:center; background:var(--white);}
+
+/* Calendar Table */
+.table-container{width:100%; overflow-x:auto; margin-top:20px; background:var(--white); border-radius:6px; border:1px solid var(--border);}
+table{width:100%; border-collapse:collapse; font-size:.95rem; text-align:left;}
+table th{background:var(--navy-deep); color:var(--white); font-family:'Fraunces',serif; padding:14px 18px;}
+table td{padding:14px 18px; border-bottom:1px solid #E5EEF7; color:#333;}
+table tbody tr:nth-child(even){background-color:#F8FBFE;}
+
+/* Gallery Grid */
+.gallery-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-top:24px;}
+.gallery-item{border-radius:6px; overflow:hidden; border:1px solid var(--border); background:var(--white);}
+.gallery-item img{width:100%; height:180px; object-fit:cover; transition:transform 0.3s ease;}
+.gallery-item:hover img{transform:scale(1.03);}
+.gallery-caption{padding:10px 12px; font-size:0.85rem; color:#444; font-weight:500; text-align:center;}
+
+/* CTA & Form */
+.cta-box{background:var(--navy); color:var(--white); border-radius:8px; padding:40px 24px; text-align:center;}
+.cta-box h2{color:var(--white); border-left:none; padding-left:0;}
+.cta-box p{color:#DCE7F5; margin:0 auto 20px;}
+.cta-form{display:flex; justify-content:center; gap:12px; max-width:540px; margin:0 auto; flex-wrap:wrap;}
+.cta-form input[type="text"], .cta-form input[type="email"]{padding:12px 16px; border-radius:4px; border:none; font:inherit; flex:1; min-width:220px;}
+.btn{display:inline-block; padding:12px 24px; border-radius:4px; font-weight:600; font-size:.95rem; border:2px solid transparent; cursor:pointer; font-family:inherit; text-decoration:none;}
+.btn-gold{background:var(--gold); color:var(--navy-deep);}
+.btn-gold:hover{background:#DDA300;}
+
+/* Footer */
+footer{background:var(--navy-deep); color:#B9C9DB; padding:48px 24px 28px;}
+.foot-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:28px; max-width:1080px; margin:0 auto;}
+footer h3{color:var(--white); font-size:1rem; font-family:'Inter',sans-serif; font-weight:600;}
+footer a{color:#B9C9DB; text-decoration:none; font-size:.9rem; display:block; margin-bottom:8px;}
+footer a:hover{color:var(--gold);}
+.foot-bottom{max-width:1080px; margin:32px auto 0; border-top:1px solid #24466E; padding-top:20px; font-size:.82rem; text-align:center; color:#7E93AC;}
+.foot-brand{display:flex; align-items:center; gap:10px; margin-bottom:12px;}
+.foot-logo{width:36px; height:36px; object-fit:cover; border-radius:50%; border:2px solid var(--gold);}
+</style>
+</head>
+<body>
+
+<!-- Header Navigation Bar -->
+<header>
+  <div class="navbar">
+    <a class="brand" href="index.html">
+      <img src="logo.jpeg" alt="Jocelyn High School Logo" class="logo-img">
+      Jocelyn High School
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="students.html">Student Life</a>
+      <a href="news.html" class="active">News &amp; Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="wrap">
+    <h1>News &amp; Events</h1>
+    <p>Welcome to the official hub for all announcements, achievements, upcoming activities, and campus life updates at Jocelyn High School.</p>
+  </div>
+</section>
+
+<!-- Latest News Section -->
+<section>
+  <div class="wrap">
+    <h2>Latest News</h2>
+    <p class="lead">Catch up on our latest official announcements, student achievements, and academic updates.</p>
+    <div class="grid-3">
+      <!-- School Announcements -->
+      <div class="news-card">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Teacher interacting with students in classroom">
+        <div class="news-card-body">
+          <span class="badge">School Announcement</span>
+          <h3>Digital Learning Campus Infrastructure Launched</h3>
+          <p>We are upgrading our modern ICT laboratories and equipping all classrooms with interactive digital displays to enhance interactive learning.</p>
+        </div>
+      </div>
+      <!-- Student Achievements -->
+      <div class="news-card">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Students celebrating academic achievements with awards">
+        <div class="news-card-body">
+          <span class="badge">Student Achievement</span>
+          <h3>Top Honors at National Science &amp; Innovation Fair</h3>
+          <p>Our student robotics team won 1st place overall for their renewable energy project at the national inter-school competition.</p>
+        </div>
+      </div>
+      <!-- Academic Updates -->
+      <div class="news-card">
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Students conducting experiment in science lab">
+        <div class="news-card-body">
+          <span class="badge">Academic Update</span>
+          <h3>End of Term Examination Schedule Released</h3>
+          <p>The academic office has finalized the revision and assessment schedule for all Senior classes ahead of the upcoming term break.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming Events Section -->
+<section class="alt">
+  <div class="wrap">
+    <h2>Upcoming Events</h2>
+    <p class="lead">Discover what’s happening around campus and join us for upcoming school activities.</p>
+    <div class="grid-2">
+      <div class="event-card">
+        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80" alt="Athletics running track for sports event">
+        <div class="event-card-body">
+          <span class="badge">Sports</span>
+          <h3>Inter-House Sports Championship</h3>
+          <div class="event-meta">📅 Nov 18, 2026 | 09:00 AM EAT | 📍 School Main Sports Pitch</div>
+          <p>Houses compete across athletics, football, basketball, and volleyball. All parents and community supporters are warmly invited.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" alt="Auditorium stage and performance lights">
+        <div class="event-card-body">
+          <span class="badge">Arts & Culture</span>
+          <h3>Annual Music, Drama &amp; Cultural Gala</h3>
+          <div class="event-meta">📅 Dec 05, 2026 | 02:00 PM EAT | 📍 Main Assembly Hall</div>
+          <p>A vibrant showcase of student creativity featuring choir renditions, original theater plays, and traditional cultural dance routines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Event Section -->
+<section>
+  <div class="wrap">
+    <h2>Featured Event</h2>
+    <p class="lead">Our marquee event of the academic term.</p>
+    <div class="featured-card">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Graduation and Speech Day Main Event" class="featured-img">
+      <div class="featured-body">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <img src="logo.jpeg" alt="Jocelyn High School Logo" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--gold); object-fit:cover;">
+          <span class="badge" style="margin-bottom:0;">Flagship Event</span>
+        </div>
+        <h3 style="font-size:1.5rem; margin-bottom:8px;">Speech Day &amp; Graduation Ceremony</h3>
+        <p style="color:#555; font-size:0.95rem; margin-bottom:12px;">
+          <strong>Date &amp; Time:</strong> December 12, 2026 | 10:00 AM EAT<br>
+          <strong>Location:</strong> Grand Assembly Hall &amp; Quadrangle
+        </p>
+        <p style="margin-bottom:20px;">Celebrating academic excellence, character development, and honoring our graduating Senior 6 class. Guest keynote speakers, awards presentation, and celebratory luncheon included.</p>
+        <div>
+          <a href="#cta" class="btn btn-gold">Register / Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- School Calendar Section -->
+<section class="alt">
+  <div class="wrap">
+    <h2>School Calendar</h2>
+    <p class="lead">Key dates for examinations, sports days, parent meetings, holidays, and school celebrations.</p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Event / Activity</th>
+            <th>Category</th>
+            <th>Scheduled Date</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>End of Term Mid-Examinations</td>
+            <td>Exams</td>
+            <td>Oct 20 – Oct 28, 2026</td>
+            <td>All Senior academic streams</td>
+          </tr>
+          <tr>
+            <td>Parent-Teacher Consultations</td>
+            <td>Parent Meetings</td>
+            <td>Nov 06, 2026</td>
+            <td>Academic performance &amp; progress review</td>
+          </tr>
+          <tr>
+            <td>Inter-House Sports Finals</td>
+            <td>Sports Days</td>
+            <td>Nov 18, 2026</td>
+            <td>Full day athletic tournaments</td>
+          </tr>
+          <tr>
+            <td>Speech Day &amp; Graduation</td>
+            <td>School Celebrations</td>
+            <td>Dec 12, 2026</td>
+            <td>Main assembly ceremony &amp; prize-giving</td>
+          </tr>
+          <tr>
+            <td>End of Year Term Break</td>
+            <td>Holidays</td>
+            <td>Dec 18, 2026 – Jan 15, 2027</td>
+            <td>School campus closed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Past Events Section -->
+<section>
+  <div class="wrap">
+    <h2>Past Events</h2>
+    <p class="lead">Highlights and photo gallery memories from recent campus activities and events.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=500&q=80" alt="Students engaged in community outreach cleanup">
+        <div class="gallery-caption">Community Outreach Day</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?auto=format&fit=crop&w=500&q=80" alt="Students studying in library book fair">
+        <div class="gallery-caption">Book Fair &amp; Reading Week</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Cultural performance stage dance">
+        <div class="gallery-caption">Cultural Heritage Gala</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=500&q=80" alt="Debate society championship speakers">
+        <div class="gallery-caption">National Debate Finals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="alt" id="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <img src="logo.jpeg" alt="Jocelyn High School Logo" style="width:56px; height:56px; border-radius:50%; border:2px solid var(--gold); object-fit:cover; margin:0 auto 16px;">
+      <h2>Stay Updated With Our School</h2>
+      <p>Subscribe to our email newsletter or join our official WhatsApp broadcast channel to get fresh updates straight to your inbox or phone.</p>
+      <form class="cta-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Jocelyn High School news and event updates!');">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-gold">Subscribe via Newsletter / WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">
+        <img src="logo.jpeg" alt="Jocelyn High School Logo" class="foot-logo">
+        <h3 style="margin:0;">Jocelyn High School</h3>
+      </div>
+      <p style="font-size:.88rem; line-height:1.6;">Knowledge, Character, Excellence.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="news.html">News &amp; Events</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div>
+      <h3>Contact Details &amp; Location</h3>
+      <p style="font-size:0.88rem; margin-bottom:6px;">📍 Location: Kampala, Uganda</p>
+      <p style="font-size:0.88rem; margin-bottom:6px;">📞 Phone: +256 700 000 000</p>
+      <p style="font-size:0.88rem; margin-bottom:6px;">✉️ Email: info@jocelynhighschool.edu</p>
+    </div>
+    <div>
+      <h3>Social Media</h3>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter / X</a>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp Broadcast Channel</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    © 2026 Jocelyn High School. All rights reserved.
+  </div>
+</footer>
+
+<script src="links.js"></script>
+</body>
+</html>
