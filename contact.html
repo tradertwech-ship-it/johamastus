@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact Us — Jocelyn High School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#123B6D;
+  --navy-deep:#0C2A4E;
+  --gold:#F4B400;
+  --white:#FFFFFF;
+  --light:#EAF3FA;
+  --text:#222222;
+  --border:#D7E5F2;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--white); color:var(--text);
+  font-family:'Inter', -apple-system, Segoe UI, sans-serif;
+  line-height:1.55;
+}
+h1,h2,h3,h4{font-family:'Fraunces', Georgia, serif; color:var(--navy-deep); margin:0 0 .4em; font-weight:600;}
+p{margin:0 0 1em; max-width:64ch;}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; height:auto; display:block; border-radius:6px;}
+section{padding:64px 24px;}
+.wrap{max-width:1080px; margin:0 auto;}
+
+/* Header & Nav */
+header{position:sticky; top:0; z-index:10; background:var(--navy);}
+.navbar{max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:16px; flex-wrap:wrap;}
+.brand{display:flex; align-items:center; gap:12px; color:var(--white); font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; white-space:nowrap;}
+.crest-img{width:38px; height:38px; border-radius:50%; object-fit:cover; border:2px solid var(--gold); background:var(--gold);}
+.crest-fallback{width:38px; height:38px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; color:var(--navy-deep); font-weight:700; font-size:1rem; flex:none;}
+nav{display:flex; gap:18px; flex-wrap:wrap;}
+nav a{color:#DCE7F5; font-size:.92rem; white-space:nowrap; padding:4px 2px; border-bottom:2px solid transparent;}
+nav a:hover, nav a:focus-visible{color:var(--white); border-bottom-color:var(--gold); outline:none;}
+nav a.active{color:var(--white); border-bottom-color:var(--gold);}
+
+/* Hero Section */
+.hero-split{background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); color:var(--white); padding:64px 24px;}
+.hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center;}
+@media(max-width:768px){.hero-grid{grid-template-columns:1fr;}}
+.hero-text h1{color:var(--white); font-size:clamp(2rem,4vw,2.8rem); margin:0 0 12px;}
+.hero-text p{color:#DCE7F5; font-size:1.1rem; margin:0;}
+.img-frame{background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:8px; padding:8px;}
+
+/* Buttons */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 24px; border-radius:4px; font-weight:600; font-size:.95rem; border:2px solid transparent; cursor:pointer; font-family:inherit;}
+.btn-gold{background:var(--gold); color:var(--navy-deep);}
+.btn-gold:hover{background:#DDA300;}
+.btn-whatsapp{background:#25D366; color:#FFF;}
+.btn-whatsapp:hover{background:#20ba5a;}
+.btn-outline-navy{border-color:var(--navy); color:var(--navy); background:transparent;}
+.btn-outline-navy:hover{background:var(--light);}
+
+/* Grids & Layouts */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:28px;}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}}
+
+/* Cards */
+.card{background:var(--white); border:1px solid var(--border); border-top:4px solid var(--gold); border-radius:6px; padding:24px;}
+.card h3{font-size:1.2rem; margin-bottom:.6em;}
+.contact-list{list-style:none; padding:0; margin:0 0 16px;}
+.contact-list li{display:flex; align-items:flex-start; gap:12px; margin-bottom:12px; font-size:.95rem;}
+
+/* Contact Form */
+form{display:flex; flex-direction:column; gap:14px;}
+.form-group{display:flex; flex-direction:column; gap:4px;}
+label{font-size:.85rem; font-weight:600; color:var(--navy-deep);}
+input,textarea,select{font:inherit; padding:11px 12px; border:1px solid #C3D6E8; border-radius:4px; background:var(--white);}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--gold); outline-offset:1px;}
+textarea{resize:vertical; min-height:110px;}
+
+/* Map & Hours */
+.map-container{background:var(--light); border:1px solid var(--border); border-radius:8px; overflow:hidden;}
+.map-placeholder{height:260px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#E2ECF5; color:#5A7A99; text-align:center; padding:20px;}
+.hours-table{width:100%; border-collapse:collapse; margin-top:12px; font-size:.92rem;}
+.hours-table td{padding:8px 0; border-bottom:1px solid var(--border);}
+.hours-table td:last-child{text-align:right; font-weight:600; color:var(--navy-deep);}
+
+/* Social Media Section */
+.social-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-top:24px;}
+.social-card{background:var(--light); border:1px solid var(--border); border-radius:6px; padding:16px; text-align:center;}
+.social-card h4{margin-bottom:4px;}
+
+/* CTA Section */
+.cta-banner{background:var(--navy); color:var(--white); border-radius:8px; padding:40px 24px; text-align:center; margin-top:40px;}
+.cta-banner h2{color:var(--gold); border-left:none; padding-left:0; font-size:1.8rem;}
+.cta-btns{display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:20px;}
+
+/* Footer */
+footer{background:var(--navy-deep); color:#B9C9DB; padding:48px 24px 28px;}
+.foot-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:28px; max-width:1080px; margin:0 auto;}
+footer h3{color:var(--white); font-size:1rem; font-family:'Inter',sans-serif; font-weight:600;}
+footer a{color:#B9C9DB; display:block; margin-bottom:8px; font-size:.9rem;}
+footer a:hover{color:var(--gold);}
+.foot-bottom{max-width:1080px; margin:32px auto 0; border-top:1px solid #24466E; padding-top:20px; font-size:.82rem; text-align:center; color:#7E93AC;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a class="brand" href="index.html">
+      <img src="logo.jpeg" alt="Jocelyn High School Logo" class="crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <span class="crest-fallback" style="display:none;">JH</span>
+      Jocelyn High School
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="students.html">Student Life</a>
+      <a href="news.html">News</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero-split">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Contact Us</h1>
+      <p>Have questions about admissions, academics, or campus life? We're here to help you every step of the way.</p>
+    </div>
+    <div class="img-frame">
+      <img src="images/campus.jpg" alt="Jocelyn High School Campus Building" onerror="this.src='https://via.placeholder.com/600x350?text=School+Building+%2F+Campus'">
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTACT & FORM -->
+<section>
+  <div class="wrap two-col">
+    <!-- Contact Info & Reception -->
+    <div>
+      <h2>Get in Touch</h2>
+      <p>Reach out through any of our main lines or visit our central administrative office.</p>
+      
+      <div class="card" style="margin-bottom:24px;">
+        <ul class="contact-list">
+          <li>📍 <strong>Address:</strong> School Road, Kampala, Uganda</li>
+          <li>📞 <strong>Phone:</strong> +256 700 000 000 / +256 780 000 000</li>
+          <li>✉️ <strong>Email:</strong> info@jocelynhighschool.edu</li>
+          <li>💬 <strong>WhatsApp:</strong> +256 700 000 000</li>
+        </ul>
+        <a href="https://wa.me/256700000000" class="btn btn-whatsapp" target="_blank">Chat on WhatsApp</a>
+      </div>
+
+      <div class="img-frame" style="border-color:var(--border);">
+        <img src="images/reception.jpg" alt="School Administration Reception Desk" onerror="this.src='https://via.placeholder.com/600x300?text=School+Reception+%2F+Administration'">
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="card">
+      <h3>Send Us a Message</h3>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" required placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" required placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+256 ...">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" required>
+            <option value="">Select an inquiry type</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Admissions">Admissions</option>
+            <option value="Academics">Academics</option>
+            <option value="Finance">Fees & Finance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" required placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS & HOURS SECTION -->
+<section class="alt" style="background:var(--light);">
+  <div class="wrap two-col">
+    <!-- Admissions Contact -->
+    <div class="card">
+      <h3>Admissions Office</h3>
+      <p>Direct inquiries regarding student enrollment, requirements, and tours.</p>
+      <ul class="contact-list">
+        <li>📞 <strong>Admissions Line:</strong> +256 700 000 001</li>
+        <li>✉️ <strong>Admissions Email:</strong> admissions@jocelynhighschool.edu</li>
+        <li>🕐 <strong>Office Hours:</strong> Mon–Fri, 8:00 AM – 4:30 PM</li>
+      </ul>
+      <div style="margin-top:16px;">
+        <img src="images/admissions-staff.jpg" alt="Admissions Staff Member" onerror="this.src='https://via.placeholder.com/500x250?text=Admissions+Staff'">
+      </div>
+    </div>
+
+    <!-- Office Hours -->
+    <div class="card">
+      <h3>Working Hours</h3>
+      <p>Our administrative desk and helpline operate on the following schedule:</p>
+      <table class="hours-table">
+        <tr>
+          <td>Monday – Friday</td>
+          <td>8:00 AM – 4:30 PM</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>9:00 AM – 1:00 PM</td>
+        </tr>
+        <tr>
+          <td>Sunday & Public Holidays</td>
+          <td>Closed</td>
+        </tr>
+      </table>
+      <p style="font-size:.85rem; color:#666; margin-top:16px;">Note: During school holiday breaks, administrative desk hours may vary.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION & MAP SECTION -->
+<section>
+  <div class="wrap">
+    <h2 style="border-left:5px solid var(--gold); padding-left:14px;">School Location</h2>
+    <p>Visit us at our main campus. Get turn-by-turn directions below.</p>
+    
+    <div class="map-container" style="margin-top:20px;">
+      <div class="map-placeholder">
+        <p>📍 <strong>Jocelyn High School Campus</strong><br>School Road, Kampala, Uganda</p>
+        <a href="https://maps.google.com" target="_blank" class="btn btn-outline-navy" style="margin-top:10px;">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA SECTION -->
+<section class="alt" style="background:var(--light);">
+  <div class="wrap">
+    <h2 style="border-left:5px solid var(--gold); padding-left:14px;">Connect With Us</h2>
+    <p>Follow our daily events, student achievements, and community announcements on social media.</p>
+
+    <div class="social-grid">
+      <div class="social-card">
+        <h4>Facebook</h4>
+        <p style="font-size:.85rem;">@JocelynHighSchool</p>
+        <a href="#" class="btn btn-outline-navy" style="padding:6px 16px; font-size:.85rem;">Follow Us</a>
+      </div>
+      <div class="social-card">
+        <h4>Instagram</h4>
+        <p style="font-size:.85rem;">@JocelynHighSchool</p>
+        <a href="#" class="btn btn-outline-navy" style="padding:6px 16px; font-size:.85rem;">Follow Us</a>
+      </div>
+      <div class="social-card">
+        <h4>TikTok</h4>
+        <p style="font-size:.85rem;">@JocelynHigh</p>
+        <a href="#" class="btn btn-outline-navy" style="padding:6px 16px; font-size:.85rem;">Follow Us</a>
+      </div>
+      <div class="social-card">
+        <h4>YouTube</h4>
+        <p style="font-size:.85rem;">Jocelyn High School Channel</p>
+        <a href="#" class="btn btn-outline-navy" style="padding:6px 16px; font-size:.85rem;">Subscribe</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section>
+  <div class="wrap">
+    <div class="cta-banner">
+      <h2>Have a Question? We’re Here to Help.</h2>
+      <p style="margin:0 auto; max-width:50ch; color:#DCE7F5;">Our support team is ready to assist you with any questions or concerns.</p>
+      <div class="cta-btns">
+        <a href="tel:+256700000000" class="btn btn-gold">Call Us Now</a>
+        <a href="https://wa.me/256700000000" class="btn btn-whatsapp" target="_blank">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="brand" style="margin-bottom:12px;">
+        <img src="logo.jpeg" alt="Jocelyn High School Logo" class="crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="crest-fallback" style="display:none;">JH</span>
+        Jocelyn High
+      </div>
+      <p style="font-size:.88rem;">Knowledge, Character, Excellence.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <a href="about.html">About Us</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="academics.html">Academics</a>
+      <a href="students.html">Student Life</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a href="contact.html">School Road, Kampala</a>
+      <a href="tel:+256700000000">+256 700 000 000</a>
+      <a href="mailto:info@jocelynhighschool.edu">info@jocelynhighschool.edu</a>
+    </div>
+    <div>
+      <h3>Follow Us</h3>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 Jocelyn High School. All rights reserved.</div>
+</footer>
+
+<script src="links.js"></script>
+</body>
+</html>
